@@ -1,10 +1,7 @@
 "use client";
 
-import {
-    generateKeyPair,
-    isStoredPublicKeyValid,
-    readStoredPublicKey,
-} from "@/utils/pgp";
+import { isStoredPublicKeyValid, readStoredPublicKey } from "@/utils/pgp";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page() {
@@ -12,7 +9,8 @@ export default function Page() {
 
     useEffect(() => {
         const initKeyPair = async () => {
-            if (!(await isStoredPublicKeyValid())) generateKeyPair("test");
+            if (!(await isStoredPublicKeyValid()))
+                redirect("/generate-key-pair");
             setPublicKey(await readStoredPublicKey());
         };
 
