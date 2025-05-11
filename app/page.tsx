@@ -20,7 +20,8 @@ export default function Page() {
     return (
         <div>
             <h1>PGP Test</h1>
-            {publicKey}
+            <h2>Your public key</h2>
+            <p>{publicKey}</p>
         </div>
     );
 }
