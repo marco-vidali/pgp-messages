@@ -21,7 +21,7 @@ export default function Page() {
 
                     setEncryptedMessage(encryptedMessage);
                 } catch (error) {
-                    alert("Error encrypting message: " + error);
+                    console.error("Error encrypting message:", error);
                 }
             } else {
                 setEncryptedMessage("");
