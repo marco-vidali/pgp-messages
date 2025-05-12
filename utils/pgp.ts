@@ -86,3 +86,46 @@ export async function encryptMessage(
         return "";
     }
 }
+
+export async function decryptMessage(
+    encryptedMessageArmored: string,
+    senderPublicKeyArmored: string,
+    passphrase: string
+) {
+    try {
+        const privateKeyArmored = localStorage.getItem("privateKey")!;
+
+        const privateKey = await openpgp.decryptKey({
+            privateKey: await openpgp.readPrivateKey({
+                armoredKey: privateKeyArmored,
+            }),
+            passphrase,
+        });
+
+        const message = await openpgp.readMessage({
+            armoredMessage: encryptedMessageArmored,
+        });
+
+        const senderPublicKey = await openpgp.readKey({
+            armoredKey: senderPublicKeyArmored,
+        });
+
+        const { data: decrypted, signatures } = await openpgp.decrypt({
+            message,
+            decryptionKeys: privateKey,
+            verificationKeys: senderPublicKey,
+            format: "utf8",
+        });
+
+        const verification = await signatures[0].verified;
+
+        if (!verification) {
+            throw new Error("Signature could not be verified or is invalid.");
+        }
+
+        return decrypted;
+    } catch (error) {
+        console.error("Error decrypting or verifying message:", error);
+        return "";
+    }
+}
