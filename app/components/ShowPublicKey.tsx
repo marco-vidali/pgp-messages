@@ -1,3 +1,5 @@
+"use client";
+
 import { isStoredPublicKeyValid, readStoredPublicKey } from "@/utils/pgp";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
