@@ -29,14 +29,10 @@ export async function isStoredPublicKeyValid() {
     }
 }
 
-export async function generateKeyPair(
-    name: string,
-    email: string,
-    passphrase: string
-) {
+export async function generateKeyPair(passphrase: string) {
     try {
         const { privateKey, publicKey } = await openpgp.generateKey({
-            userIDs: [{ name: name, email: email }],
+            userIDs: [{ name: "", email: "" }],
             passphrase: passphrase,
             format: "armored",
         });
