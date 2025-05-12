@@ -23,7 +23,7 @@ export default function ShowPublicKey() {
 
             <div>
                 <h2>Your public key</h2>
-                <p>{publicKey}</p>
+                <pre>{publicKey}</pre>
             </div>
         </>
     );

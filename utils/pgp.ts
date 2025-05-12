@@ -53,3 +53,36 @@ export async function generateKeyPair(
 export async function readStoredPublicKey() {
     return localStorage.getItem("publicKey")!;
 }
+
+export async function encryptMessage(
+    message: string,
+    recipientPublicKeyArmored: string,
+    passphrase: string
+) {
+    try {
+        const recipientPublicKey = await openpgp.readKey({
+            armoredKey: recipientPublicKeyArmored,
+        });
+
+        const privateKeyArmored = localStorage.getItem("privateKey")!;
+
+        const privateKey = await openpgp.decryptKey({
+            privateKey: await openpgp.readPrivateKey({
+                armoredKey: privateKeyArmored,
+            }),
+            passphrase: passphrase,
+        });
+
+        const encrypted = await openpgp.encrypt({
+            message: await openpgp.createMessage({ text: message }),
+            encryptionKeys: recipientPublicKey,
+            signingKeys: privateKey,
+            format: "armored",
+        });
+
+        return encrypted;
+    } catch (error) {
+        console.error("Error encrypting message:", error);
+        return "";
+    }
+}

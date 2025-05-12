@@ -1,12 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { encryptMessage } from "@/utils/pgp";
+import { useEffect, useState } from "react";
 
 export default function Page() {
     const [recipientPublicKey, setRecipientPublicKey] = useState("");
     const [message, setMessage] = useState("");
     const [encryptedMessage, setEncryptedMessage] = useState("");
     const [passphrase, setPassphrase] = useState("");
+
+    useEffect(() => {
+        const encryptAndShowMessage = async () => {
+            if (message && recipientPublicKey) {
+                try {
+                    const encryptedMessage = await encryptMessage(
+                        message,
+                        recipientPublicKey,
+                        passphrase
+                    );
+
+                    setEncryptedMessage(encryptedMessage);
+                } catch (error) {
+                    console.error("Error encrypting message:", error);
+                }
+            } else {
+                setEncryptedMessage("");
+            }
+        };
+
+        encryptAndShowMessage();
+    }, [message, recipientPublicKey, passphrase]);
 
     return (
         <>
