@@ -6,6 +6,7 @@ export default function Page() {
     const [recipientPublicKey, setRecipientPublicKey] = useState("");
     const [message, setMessage] = useState("");
     const [encryptedMessage, setEncryptedMessage] = useState("");
+    const [passphrase, setPassphrase] = useState("");
 
     return (
         <>
@@ -32,6 +33,14 @@ export default function Page() {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                     />
+
+                    <input
+                        type="password"
+                        placeholder="Passphrase"
+                        value={passphrase}
+                        onChange={(e) => setPassphrase(e.target.value)}
+                    />
+
                     <textarea
                         placeholder="Encrypted message"
                         readOnly
