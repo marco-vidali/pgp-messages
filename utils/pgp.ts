@@ -32,7 +32,7 @@ export async function isStoredPublicKeyValid() {
 export async function generateKeyPair(
     name: string,
     email: string,
-    passphrase: string = "defaultPassphrase"
+    passphrase: string
 ) {
     try {
         const { privateKey, publicKey } = await openpgp.generateKey({
@@ -57,7 +57,7 @@ export async function readStoredPublicKey() {
 export async function encryptMessage(
     message: string,
     recipientPublicKeyArmored: string,
-    passphrase: string = "defaultPassphrase"
+    passphrase: string
 ) {
     try {
         const recipientPublicKey = await openpgp.readKey({
@@ -90,7 +90,7 @@ export async function encryptMessage(
 export async function decryptMessage(
     encryptedMessageArmored: string,
     senderPublicKeyArmored: string,
-    passphrase: string = "defaultPassphrase"
+    passphrase: string
 ) {
     try {
         const privateKeyArmored = localStorage.getItem("privateKey")!;
