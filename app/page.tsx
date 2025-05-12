@@ -3,6 +3,7 @@
 import { isStoredPublicKeyValid, readStoredPublicKey } from "@/utils/pgp";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Page() {
     const [publicKey, setPublicKey] = useState("");
@@ -20,8 +21,20 @@ export default function Page() {
     return (
         <div>
             <h1>PGP Test</h1>
-            <h2>Your public key</h2>
-            <p>{publicKey}</p>
+
+            <div>
+                <h2>Your public key</h2>
+                <p>{publicKey}</p>
+            </div>
+
+            <div>
+                <Link href="/encrypt">
+                    <button>Encrypt message</button>
+                </Link>
+                <Link href="/decrypt">
+                    <button>Decrypt message</button>
+                </Link>
+            </div>
         </div>
     );
 }
