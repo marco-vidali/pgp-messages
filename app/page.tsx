@@ -7,6 +7,10 @@ export default function Page() {
             <ShowPublicKey />
 
             <div>
+                <Link href="/generate-key-pair">
+                    <button>Regenerate key pair</button>
+                </Link>
+
                 <Link href="/encrypt">
                     <button>Encrypt message</button>
                 </Link>
