@@ -37,7 +37,7 @@ export async function generateKeyPair(
     try {
         const { privateKey, publicKey } = await openpgp.generateKey({
             userIDs: [{ name: name, email: email }],
-            passphrase: passphrase,
+            passphrase: passphrase || "defaultPassphrase",
             format: "armored",
         });
 
