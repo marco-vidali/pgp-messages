@@ -4,6 +4,8 @@ import ShowPublicKey from "./components/ShowPublicKey";
 export default function Page() {
     return (
         <>
+            <h1>PGP Messages</h1>
+
             <ShowPublicKey />
 
             <div>

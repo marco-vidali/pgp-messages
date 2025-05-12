@@ -19,12 +19,8 @@ export default function ShowPublicKey() {
 
     return (
         <>
-            <h1>PGP Test</h1>
-
-            <div>
-                <h2>Your public key</h2>
-                <pre>{publicKey}</pre>
-            </div>
+            <h2>Your public key</h2>
+            <pre>{publicKey}</pre>
         </>
     );
 }
