@@ -21,7 +21,7 @@ export default function Page() {
 
                     setDecryptedMessage(decryptedMessage);
                 } catch (error) {
-                    console.error("Error decrypting message:", error);
+                    alert("Error decrypting message: " + error);
                 }
             } else {
                 setDecryptedMessage("");
