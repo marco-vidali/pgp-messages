@@ -16,7 +16,8 @@ export default function ShowPublicKey() {
 
     return (
         <>
-            <pre className="text-center">{publicKey}</pre>
+            <h2>Your public key</h2>
+            <pre>{publicKey}</pre>
         </>
     );
 }
