@@ -14,15 +14,16 @@ export default function GenerateKeyPairForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="flex gap-2">
             <input
                 type="password"
                 required
                 placeholder="Passphrase"
                 onChange={(e) => setPassphrase(e.currentTarget.value)}
+                className="input input-primary"
             />
 
-            <input type="submit" value="Generate" />
+            <input type="submit" value="Generate" className="btn btn-primary" />
         </form>
     );
 }
