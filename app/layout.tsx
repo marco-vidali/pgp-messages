@@ -7,9 +7,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" data-theme="light">
             <RedirectToGenerateKeyPair />
-            <body>{children}</body>
+            <body className="prose">{children}</body>
         </html>
     );
 }
