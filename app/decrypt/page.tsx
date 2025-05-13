@@ -32,29 +32,25 @@ export default function Page() {
     }, [encryptedMessage, senderPublicKey, passphrase]);
 
     return (
-        <>
-            <h1>Decrypt Message</h1>
+        <div className="flex flex-col items-center gap-8">
+            <h1 className="text-xl font-bold">Decrypt Message</h1>
 
-            <div style={{ display: "flex", height: "calc(100vh - 100px)" }}>
-                <textarea
-                    placeholder="Sender public key"
-                    style={{ flex: 1, height: "100%", resize: "none" }}
-                    value={senderPublicKey}
-                    onChange={(e) => setSenderPublicKey(e.target.value)}
-                />
+            <div className="flex flex-col gap-4 w-full lg:flex-row lg:h-[calc(100vh-6rem)]">
+                <div className="flex-1">
+                    <textarea
+                        placeholder="Sender public key"
+                        value={senderPublicKey}
+                        onChange={(e) => setSenderPublicKey(e.target.value)}
+                        className="textarea w-full h-64 lg:h-full"
+                    />
+                </div>
 
-                <div
-                    style={{
-                        flex: 1,
-                        display: "flex",
-                        flexDirection: "column",
-                    }}
-                >
+                <div className="flex flex-col gap-4 flex-1">
                     <textarea
                         placeholder="Encrypted message"
-                        style={{ resize: "none", flex: 1 }}
                         value={encryptedMessage}
                         onChange={(e) => setEncryptedMessage(e.target.value)}
+                        className="textarea w-full h-32"
                     />
 
                     <input
@@ -62,17 +58,18 @@ export default function Page() {
                         placeholder="Passphrase"
                         value={passphrase}
                         onChange={(e) => setPassphrase(e.target.value)}
+                        className="input w-full"
                     />
 
                     <textarea
                         placeholder="Decrypted message"
                         readOnly
-                        style={{ resize: "none", flex: 1 }}
                         value={decryptedMessage}
                         onChange={(e) => setDecryptedMessage(e.target.value)}
+                        className="textarea w-full h-64 grow"
                     />
                 </div>
             </div>
-        </>
+        </div>
     );
 }
