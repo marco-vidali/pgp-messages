@@ -8,8 +8,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" data-theme="light">
-            <RedirectToGenerateKeyPair />
-            <body className="p-4">{children}</body>
+            <body className="p-4">
+                <RedirectToGenerateKeyPair />
+                {children}
+            </body>
         </html>
     );
 }
