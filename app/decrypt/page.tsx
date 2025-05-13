@@ -50,7 +50,7 @@ export default function Page() {
                         placeholder="Encrypted message"
                         value={encryptedMessage}
                         onChange={(e) => setEncryptedMessage(e.target.value)}
-                        className="textarea w-full h-64"
+                        className="textarea w-full h-64 grow"
                     />
 
                     <input
@@ -66,7 +66,7 @@ export default function Page() {
                         readOnly
                         value={decryptedMessage}
                         onChange={(e) => setDecryptedMessage(e.target.value)}
-                        className="textarea w-full h-32 grow"
+                        className="textarea w-full h-32"
                     />
                 </div>
             </div>
