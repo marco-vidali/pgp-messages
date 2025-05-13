@@ -14,10 +14,5 @@ export default function ShowPublicKey() {
         fetchKey();
     }, []);
 
-    return (
-        <>
-            <h2>Your public key</h2>
-            <pre>{publicKey}</pre>
-        </>
-    );
+    return <pre>{publicKey}</pre>;
 }
