@@ -20,7 +20,7 @@ export default function GenerateKeyPairForm() {
                 required
                 placeholder="Passphrase"
                 onChange={(e) => setPassphrase(e.currentTarget.value)}
-                className="input input-primary"
+                className="input"
             />
 
             <input type="submit" value="Generate" className="btn btn-primary" />
