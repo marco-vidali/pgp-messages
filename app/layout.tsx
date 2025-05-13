@@ -8,6 +8,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" data-theme="light">
+            <head>
+                <title>PGP Messages</title>
+            </head>
+
             <body className="p-4">
                 <RedirectToGenerateKeyPair />
                 {children}
