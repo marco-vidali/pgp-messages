@@ -9,7 +9,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <RedirectToGenerateKeyPair />
-            <body>{children}</body>
+            <body className="p-4">{children}</body>
         </html>
     );
 }

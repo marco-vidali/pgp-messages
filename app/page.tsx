@@ -1,26 +1,27 @@
 import Link from "next/link";
 import ShowPublicKey from "./components/ShowPublicKey";
+import Button from "./components/Button";
 
 export default function Page() {
     return (
-        <>
-            <h1>PGP Messages</h1>
+        <div className="flex flex-col items-center gap-8">
+            <h1 className="text-2xl font-bold">PGP Messages</h1>
 
             <ShowPublicKey />
 
-            <div>
+            <div className="flex gap-4">
                 <Link href="/generate-key-pair">
-                    <button>Regenerate key pair</button>
+                    <Button>Regenerate key pair</Button>
                 </Link>
 
                 <Link href="/encrypt">
-                    <button>Encrypt message</button>
+                    <Button>Encrypt message</Button>
                 </Link>
 
                 <Link href="/decrypt">
-                    <button>Decrypt message</button>
+                    <Button>Decrypt message</Button>
                 </Link>
             </div>
-        </>
+        </div>
     );
 }
