@@ -3,24 +3,26 @@ import ShowPublicKey from "./components/ShowPublicKey";
 
 export default function Page() {
     return (
-        <>
-            <h1>PGP Messages</h1>
+        <div className="flex flex-col items-center gap-8">
+            <h1 className="text-xl font-bold">PGP Messages</h1>
 
             <ShowPublicKey />
 
-            <div>
+            <div className="flex gap-4">
                 <Link href="/generate-key-pair">
-                    <button>Regenerate key pair</button>
+                    <button className="btn btn-primary">
+                        Regenerate key pair
+                    </button>
                 </Link>
 
                 <Link href="/encrypt">
-                    <button>Encrypt message</button>
+                    <button className="btn btn-primary">Encrypt message</button>
                 </Link>
 
                 <Link href="/decrypt">
-                    <button>Decrypt message</button>
+                    <button className="btn btn-primary">Decrypt message</button>
                 </Link>
             </div>
-        </>
+        </div>
     );
 }

@@ -14,5 +14,5 @@ export default function ShowPublicKey() {
         fetchKey();
     }, []);
 
-    return <pre>{publicKey}</pre>;
+    return <pre className="text-xs sm:text-base text-center">{publicKey}</pre>;
 }
