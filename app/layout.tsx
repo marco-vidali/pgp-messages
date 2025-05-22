@@ -16,9 +16,18 @@ export default function RootLayout({
                 />
             </head>
 
-            <body className="p-4">
+            <body>
                 <RedirectToGenerateKeyPair />
-                {children}
+
+                <div className="flex flex-col h-screen">
+                    <div className="p-4 grow">{children}</div>
+
+                    <footer className="footer sm:footer-horizontal footer-center text-base-content p-4 border-t border-base-300">
+                        <aside>
+                            <p>Designed and developed by Marco Vidali.</p>
+                        </aside>
+                    </footer>
+                </div>
             </body>
         </html>
     );
